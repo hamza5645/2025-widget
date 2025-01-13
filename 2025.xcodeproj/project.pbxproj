@@ -6,14 +6,65 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2F7606212D35BFB9001DD96C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7606202D35BFB9001DD96C /* WidgetKit.framework */; };
+		2F7606232D35BFB9001DD96C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F7606222D35BFB9001DD96C /* SwiftUI.framework */; };
+		2F7606302D35BFBA001DD96C /* CalenderWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2F76061E2D35BFB9001DD96C /* CalenderWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2F76062E2D35BFBA001DD96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2F597D262D35286100999D4F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2F76061D2D35BFB9001DD96C;
+			remoteInfo = CalenderWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2F7606352D35BFBA001DD96C /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2F7606302D35BFBA001DD96C /* CalenderWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2F597D2E2D35286100999D4F /* 2025.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 2025.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F76061E2D35BFB9001DD96C /* CalenderWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CalenderWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F7606202D35BFB9001DD96C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		2F7606222D35BFB9001DD96C /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2F7606312D35BFBA001DD96C /* Exceptions for "CalenderWidget" folder in "CalenderWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2F76061D2D35BFB9001DD96C /* CalenderWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F597D302D35286100999D4F /* 2025 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = 2025;
+			sourceTree = "<group>";
+		};
+		2F7606242D35BFB9001DD96C /* CalenderWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2F7606312D35BFBA001DD96C /* Exceptions for "CalenderWidget" folder in "CalenderWidgetExtension" target */,
+			);
+			path = CalenderWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +77,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F76061B2D35BFB9001DD96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2F7606232D35BFB9001DD96C /* SwiftUI.framework in Frameworks */,
+				2F7606212D35BFB9001DD96C /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +93,8 @@
 			isa = PBXGroup;
 			children = (
 				2F597D302D35286100999D4F /* 2025 */,
+				2F7606242D35BFB9001DD96C /* CalenderWidget */,
+				2F76061F2D35BFB9001DD96C /* Frameworks */,
 				2F597D2F2D35286100999D4F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +103,18 @@
 			isa = PBXGroup;
 			children = (
 				2F597D2E2D35286100999D4F /* 2025.app */,
+				2F76061E2D35BFB9001DD96C /* CalenderWidgetExtension.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2F76061F2D35BFB9001DD96C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2F7606202D35BFB9001DD96C /* WidgetKit.framework */,
+				2F7606222D35BFB9001DD96C /* SwiftUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +127,12 @@
 				2F597D2A2D35286100999D4F /* Sources */,
 				2F597D2B2D35286100999D4F /* Frameworks */,
 				2F597D2C2D35286100999D4F /* Resources */,
+				2F7606352D35BFBA001DD96C /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2F76062F2D35BFBA001DD96C /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				2F597D302D35286100999D4F /* 2025 */,
@@ -69,6 +143,28 @@
 			productName = 2025;
 			productReference = 2F597D2E2D35286100999D4F /* 2025.app */;
 			productType = "com.apple.product-type.application";
+		};
+		2F76061D2D35BFB9001DD96C /* CalenderWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2F7606322D35BFBA001DD96C /* Build configuration list for PBXNativeTarget "CalenderWidgetExtension" */;
+			buildPhases = (
+				2F76061A2D35BFB9001DD96C /* Sources */,
+				2F76061B2D35BFB9001DD96C /* Frameworks */,
+				2F76061C2D35BFB9001DD96C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2F7606242D35BFB9001DD96C /* CalenderWidget */,
+			);
+			name = CalenderWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = CalenderWidgetExtension;
+			productReference = 2F76061E2D35BFB9001DD96C /* CalenderWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +177,9 @@
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
 					2F597D2D2D35286100999D4F = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					2F76061D2D35BFB9001DD96C = {
 						CreatedOnToolsVersion = 16.2;
 					};
 				};
@@ -100,12 +199,20 @@
 			projectRoot = "";
 			targets = (
 				2F597D2D2D35286100999D4F /* 2025 */,
+				2F76061D2D35BFB9001DD96C /* CalenderWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2F597D2C2D35286100999D4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F76061C2D35BFB9001DD96C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +229,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2F76061A2D35BFB9001DD96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2F76062F2D35BFBA001DD96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2F76061D2D35BFB9001DD96C /* CalenderWidgetExtension */;
+			targetProxy = 2F76062E2D35BFBA001DD96C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2F597D3A2D35286200999D4F /* Debug */ = {
@@ -302,6 +424,60 @@
 			};
 			name = Release;
 		};
+		2F7606332D35BFBA001DD96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55L48W2DHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalenderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CalenderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Hamza.-025.CalenderWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2F7606342D35BFBA001DD96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 55L48W2DHK;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CalenderWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CalenderWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Hamza.-025.CalenderWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -319,6 +495,15 @@
 			buildConfigurations = (
 				2F597D3D2D35286200999D4F /* Debug */,
 				2F597D3E2D35286200999D4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2F7606322D35BFBA001DD96C /* Build configuration list for PBXNativeTarget "CalenderWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F7606332D35BFBA001DD96C /* Debug */,
+				2F7606342D35BFBA001DD96C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
