@@ -87,7 +87,7 @@ struct CalendarWidgetEntryView: View {
     
     // Medium widget layout
     private var mediumWidget: some View {
-        matrixPattern(columns: 22, rows: 8)
+        matrixPattern(columns: 22, rows: 8, dotSize: 7.5)
             .padding(.horizontal)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.black)
@@ -100,7 +100,7 @@ struct CalendarWidgetEntryView: View {
             Text("2025")
                 .font(.system(size: 40, weight: .bold))
             
-            matrixPattern(columns: 22, rows: 17)
+            matrixPattern(columns: 22, rows: 17, dotSize: 7)
                 .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -108,16 +108,16 @@ struct CalendarWidgetEntryView: View {
         .foregroundColor(.white)
     }
     
-    // Reusable matrix pattern
-    private func matrixPattern(columns: Int, rows: Int) -> some View {
-        VStack(spacing: 5) {
+    // Reusable matrix pattern with configurable dot size
+    private func matrixPattern(columns: Int, rows: Int, dotSize: CGFloat) -> some View {
+        VStack(spacing: dotSize - 1) {  // Adjust spacing relative to dot size
             ForEach(0..<rows, id: \.self) { row in
-                HStack(spacing: 5) {
+                HStack(spacing: dotSize - 1) {  // Adjust spacing relative to dot size
                     ForEach(0..<columns, id: \.self) { column in
                         let index = row * columns + column
                         Circle()
                             .fill(Color.white.opacity(getDotOpacity(for: index)))
-                            .frame(width: 6, height: 6)
+                            .frame(width: dotSize, height: dotSize)
                     }
                 }
             }
