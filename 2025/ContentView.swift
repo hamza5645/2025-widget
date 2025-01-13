@@ -24,7 +24,7 @@ struct ContentView: View {
         } else if now >= year2025End {
             return 365
         } else {
-            return calendar.dateComponents([.day], from: year2025Start, to: now).day ?? 0
+            return (calendar.dateComponents([.day], from: year2025Start, to: now).day ?? 0) + 1
         }
     }
     
@@ -45,15 +45,21 @@ struct ContentView: View {
                 Spacer()
                 
                 // Dot Matrix Pattern
-                LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 15), count: columns), spacing: 15) {
-                    ForEach(0..<(columns * rows), id: \.self) { index in
-                        Circle()
-                            .fill(Color.white.opacity(getDotOpacity(for: index)))
-                            .frame(width: 4, height: 4)
+                VStack(spacing: 15) {
+                    ForEach(0..<rows, id: \.self) { row in
+                        HStack(spacing: 15) {
+                            ForEach(0..<columns, id: \.self) { column in
+                                let index = row * columns + column
+                                Circle()
+                                    .fill(Color.white.opacity(getDotOpacity(for: index)))
+                                    .frame(width: 4, height: 4)
+                            }
+                        }
                     }
                 }
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
+                .scaleEffect(0.8)  // Scale down to fit
                 
                 Spacer()
                 
