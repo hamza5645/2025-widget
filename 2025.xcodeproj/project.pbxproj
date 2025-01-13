@@ -51,11 +51,22 @@
 			);
 			target = 2F76061D2D35BFB9001DD96C /* CalenderWidgetExtension */;
 		};
+		2F76063B2D35C1AB001DD96C /* Exceptions for "2025" folder in "CalenderWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				CalendarWidget.swift,
+				DaysRemainingWidget.swift,
+			);
+			target = 2F76061D2D35BFB9001DD96C /* CalenderWidgetExtension */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		2F597D302D35286100999D4F /* 2025 */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2F76063B2D35C1AB001DD96C /* Exceptions for "2025" folder in "CalenderWidgetExtension" target */,
+			);
 			path = 2025;
 			sourceTree = "<group>";
 		};
