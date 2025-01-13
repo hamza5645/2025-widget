@@ -87,34 +87,21 @@ struct CalendarWidgetEntryView: View {
     
     // Medium widget layout
     private var mediumWidget: some View {
-        VStack {
-            Text("Days Remaining: \(entry.daysRemaining)")
-                .font(.headline)
-            Text("Days Elapsed: \(entry.daysElapsed)")
-                .font(.subheadline)
-            
-            matrixPattern(columns: 22, rows: 8)
-        }
-        .padding()
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
-        .foregroundColor(.white)
+        matrixPattern(columns: 22, rows: 8)
+            .padding(.horizontal)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black)
+            .foregroundColor(.white)
     }
     
     // Large widget layout
     private var largeWidget: some View {
-        VStack {
+        VStack(spacing: 20) {
             Text("2025")
                 .font(.system(size: 40, weight: .bold))
-                .padding(.top)
-            
-            Text("Days Remaining: \(entry.daysRemaining)")
-                .font(.headline)
-            Text("Days Elapsed: \(entry.daysElapsed)")
-                .font(.subheadline)
             
             matrixPattern(columns: 22, rows: 17)
-                .padding()
+                .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.black)
