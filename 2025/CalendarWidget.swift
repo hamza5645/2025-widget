@@ -57,6 +57,15 @@ struct CalendarProvider: TimelineProvider {
 struct CalendarWidgetEntryView: View {
     var entry: CalendarEntry
     @Environment(\.widgetFamily) var family
+    @Environment(\.colorScheme) var colorScheme
+    
+    var backgroundColor: Color {
+        colorScheme == .dark ? .black : .white
+    }
+    
+    var foregroundColor: Color {
+        colorScheme == .dark ? .white : .black
+    }
 
     var body: some View {
         switch family {
@@ -78,11 +87,11 @@ struct CalendarWidgetEntryView: View {
                 .font(.system(size: 32, weight: .bold))
             Text("days left")
                 .font(.caption)
-                .foregroundColor(.white.opacity(0.7))
+                .foregroundColor(foregroundColor.opacity(0.7))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
-        .foregroundColor(.white)
+        .background(backgroundColor)
+        .foregroundColor(foregroundColor)
     }
     
     // Medium widget layout
@@ -90,8 +99,8 @@ struct CalendarWidgetEntryView: View {
         matrixPattern(columns: 22, rows: 8, dotSize: 7.5)
             .padding(.horizontal)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
-            .foregroundColor(.white)
+            .background(backgroundColor)
+            .foregroundColor(foregroundColor)
     }
     
     // Large widget layout
@@ -104,19 +113,19 @@ struct CalendarWidgetEntryView: View {
                 .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.black)
-        .foregroundColor(.white)
+        .background(backgroundColor)
+        .foregroundColor(foregroundColor)
     }
     
     // Reusable matrix pattern with configurable dot size
     private func matrixPattern(columns: Int, rows: Int, dotSize: CGFloat) -> some View {
-        VStack(spacing: dotSize - 1) {  // Adjust spacing relative to dot size
+        VStack(spacing: dotSize - 1) {
             ForEach(0..<rows, id: \.self) { row in
-                HStack(spacing: dotSize - 1) {  // Adjust spacing relative to dot size
+                HStack(spacing: dotSize - 1) {
                     ForEach(0..<columns, id: \.self) { column in
                         let index = row * columns + column
                         Circle()
-                            .fill(Color.white.opacity(getDotOpacity(for: index)))
+                            .fill(getDotColor(for: index))
                             .frame(width: dotSize, height: dotSize)
                     }
                 }
@@ -124,17 +133,19 @@ struct CalendarWidgetEntryView: View {
         }
     }
     
-    private func getDotOpacity(for index: Int) -> Double {
+    private func getDotColor(for index: Int) -> Color {
         let totalDays = 365
         
         if index >= totalDays {
-            return 0.0
+            return .clear
         }
         
+        let baseColor = colorScheme == .dark ? Color.white : Color.black
+        
         if index < entry.daysElapsed {
-            return 0.8
+            return baseColor.opacity(0.8)
         } else {
-            return 0.2
+            return baseColor.opacity(0.2)
         }
     }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State private var timeRemaining: TimeInterval = 0
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     let columns = 22
@@ -34,12 +35,13 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.black.ignoresSafeArea()
+            (colorScheme == .dark ? Color.black : Color.white)
+                .ignoresSafeArea()
             
             VStack {
                 Text("2025")
                     .font(.system(size: 80, weight: .bold))
-                    .foregroundColor(.white)
+                    .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     .padding(.top, 60)
                 
                 Spacer()
@@ -51,7 +53,7 @@ struct ContentView: View {
                             ForEach(0..<columns, id: \.self) { column in
                                 let index = row * columns + column
                                 Circle()
-                                    .fill(Color.white.opacity(getDotOpacity(for: index)))
+                                    .fill(getDotColor(for: index))
                                     .frame(width: 4, height: 4)
                             }
                         }
@@ -59,7 +61,7 @@ struct ContentView: View {
                 }
                 .padding(.horizontal)
                 .frame(maxWidth: .infinity)
-                .scaleEffect(0.8)  // Scale down to fit
+                .scaleEffect(0.8)
                 
                 Spacer()
                 
@@ -67,11 +69,11 @@ struct ContentView: View {
                 HStack {
                     Text("\(daysRemaining)")
                         .font(.system(size: 24, weight: .regular))
-                        .foregroundColor(.white)
+                        .foregroundColor(colorScheme == .dark ? Color.white : Color.black)
                     
                     Text("days left")
                         .font(.system(size: 24, weight: .regular))
-                        .foregroundColor(.white.opacity(0.5))
+                        .foregroundColor((colorScheme == .dark ? Color.white : Color.black).opacity(0.5))
                 }
                 .padding(.horizontal, 40)
                 .padding(.bottom, 40)
@@ -85,19 +87,19 @@ struct ContentView: View {
         }
     }
     
-    private func getDotOpacity(for index: Int) -> Double {
+    private func getDotColor(for index: Int) -> Color {
         let totalDays = 365
         
-        // If the index is beyond the total days, don't show the dot
         if index >= totalDays {
-            return 0.0
+            return .clear
         }
         
-        // If this dot represents a passed day in 2025, make it brighter
+        let baseColor = colorScheme == .dark ? Color.white : Color.black
+        
         if index < daysElapsedIn2025 {
-            return 0.8
+            return baseColor.opacity(0.8)
         } else {
-            return 0.2
+            return baseColor.opacity(0.2)
         }
     }
     
