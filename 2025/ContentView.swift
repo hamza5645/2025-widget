@@ -97,9 +97,9 @@ struct ContentView: View {
         let baseColor = colorScheme == .dark ? Color.white : Color.black
         
         if index < daysElapsedIn2025 {
-            return baseColor.opacity(0.8)
+            return baseColor.opacity(1.0)
         } else {
-            return baseColor.opacity(0.2)
+            return baseColor.opacity(0.3)
         }
     }
     
