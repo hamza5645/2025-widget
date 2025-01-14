@@ -90,8 +90,8 @@ struct CalendarWidgetEntryView: View {
                 .foregroundColor(foregroundColor.opacity(0.7))
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(backgroundColor)
         .foregroundColor(foregroundColor)
+        .containerBackground(backgroundColor, for: .widget)
     }
     
     // Medium widget layout
@@ -99,8 +99,8 @@ struct CalendarWidgetEntryView: View {
         matrixPattern(columns: 22, rows: 8, dotSize: 7.5)
             .padding(.horizontal)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(backgroundColor)
             .foregroundColor(foregroundColor)
+            .containerBackground(backgroundColor, for: .widget)
     }
     
     // Large widget layout
@@ -113,8 +113,8 @@ struct CalendarWidgetEntryView: View {
                 .padding(.horizontal)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(backgroundColor)
         .foregroundColor(foregroundColor)
+        .containerBackground(backgroundColor, for: .widget)
     }
     
     // Reusable matrix pattern with configurable dot size
